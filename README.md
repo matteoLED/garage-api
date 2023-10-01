@@ -46,7 +46,7 @@ L'application dispose d'une API pour gérer les données. Voici quelques-uns des
 
 - /api/used/vehicles: Obtenir la liste des véhicules d'occasion.
 - /api/used/vehicle/add: Ajouter un nouveau véhicule d'occasion.
-- /api/customerTestimonials: Obtenir la liste des témoignages clients.
-- /api/customerTestimonial/add: Ajouter un nouveau témoignage client.
+- /api/customer/testimonials: Obtenir la liste des témoignages clients.
+- /api/customer/testimonial/add: Ajouter un nouveau témoignage client.
 ...
 
