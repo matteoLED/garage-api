@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\HourController;
 use App\Http\Controllers\CustomerTestimonialController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\UsedVehicleController;
 
 
 Route::get('/', HomeController::class);
@@ -36,3 +37,9 @@ Route::get('/contact/{id}', [ContactController::class, 'getContactById']);
 Route::put('/contacts/{id}', [ContactController::class, 'updateContact']);
 Route::delete('/contacts/{id}', [ContactController::class, 'deleteContact']);
 
+
+Route::get('/used/vehicles', [UsedVehicleController::class, 'getUsedVehicles']);
+Route::post('/used/vehicle/add', [UsedVehicleController::class, 'createUsedVehicle']);
+Route::get('/used/vehicles/{id}', [UsedVehicleController::class, 'getUsedVehicleById']);
+Route::put('/used/vehicle/{id}', [UsedVehicleController::class, 'updateUsedVehicle']);
+Route::delete('/used/vehicle/{id}', [UsedVehicleController::class, 'deleteUsedVehicle']);
