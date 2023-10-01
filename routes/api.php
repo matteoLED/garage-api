@@ -24,11 +24,11 @@ Route::put('/hours/{id}', [HourController::class, 'updateHour']);
 Route::delete('/hours/{id}', [HourController::class, 'deleteHour']);
 
 
-Route::get('/customerTestimonials', [CustomerTestimonialController::class, 'getCustomerTestimonial']);
-Route::post('/customerTestimonial/add', [CustomerTestimonialController::class, 'createCustomerTestimonial']);
-Route::get('/customerTestimonial/{id}', [CustomerTestimonialController::class, 'getCustomerTestimonialById']);
-Route::put('/customerTestimonials/{id}', [CustomerTestimonialController::class, 'updateCustomerTestimonial']);
-Route::delete('/customerTestimonials/{id}', [CustomerTestimonialController::class, 'deleteCustomerTestimonial']);
+Route::get('/customer/testimonials', [CustomerTestimonialController::class, 'getCustomerTestimonial']);
+Route::post('/customer/testimonial/add', [CustomerTestimonialController::class, 'createCustomerTestimonial']);
+Route::get('/customer/testimonial/{id}', [CustomerTestimonialController::class, 'getCustomerTestimonialById']);
+Route::put('/customer/testimonials/{id}', [CustomerTestimonialController::class, 'updateCustomerTestimonial']);
+Route::delete('/customer/testimonials/{id}', [CustomerTestimonialController::class, 'deleteCustomerTestimonial']);
 
 
 Route::get('/contacts', [ContactController::class, 'getContact']);
