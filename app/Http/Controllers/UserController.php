@@ -41,15 +41,21 @@ class UserController extends Controller
         ], 200);
     }
 
-    public function getUserById($id)
+    public function getUserById($user_id)
     {
-        if (User::where('id', $id)->exists()) {
-            $user = User::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
-            return response($user, 200);
-        } else {
+        $user = User::find($user_id);
+
+        if (!$user) {
             return response()->json([
-                "message" => "user not found"
+                'success' => false,
+                'message' => 'User introuvable'
             ], 404);
         }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'User trouvé',
+            'data' => $user
+        ]);
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     protected $table = 'users';
+    protected $primaryKey = 'user_id';
 
     protected $fillable = [
         'firstname',
@@ -21,6 +22,8 @@ class User extends Model
     ];
 
     public $timestamps = false;
+   
+
 
     // Vous pouvez définir des relations ici, par exemple :
     // public function orders()
