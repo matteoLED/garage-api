@@ -21,7 +21,8 @@ class UserController extends Controller
         $user->save();
 
         return response()->json([
-            "message" => "user record created"
+            "message" => "user created",
+            "data" => $user
         ], 201);
     }
 
