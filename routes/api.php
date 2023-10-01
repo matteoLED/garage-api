@@ -8,4 +8,5 @@ Route::get('/', HomeController::class);
 
 Route::get('/users', [UserController::class, 'getUsers']);
 Route::post('/users/add', [UserController::class, 'createUser']);
+Route::get('/users/{id}', [UserController::class, 'getUserById']);
 

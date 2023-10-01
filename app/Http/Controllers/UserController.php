@@ -41,7 +41,7 @@ class UserController extends Controller
         ], 200);
     }
 
-    public function getUser($id)
+    public function getUserById($id)
     {
         if (User::where('id', $id)->exists()) {
             $user = User::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
