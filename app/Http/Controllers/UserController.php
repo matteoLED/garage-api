@@ -5,18 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 
+use Illuminate\Support\Facades\Validator;
+
 class UserController extends Controller
 {
-    public function createUser(Request $request)
+    public function createUser(Request $req)
     {
 
         $user = new User;
 
-        $user->firstname = $request->firstname;
-        $user->lastname = $request->lastname;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->user_type = $request->user_type;
+        $user->firstname = $req->firstname;
+        $user->lastname = $req->lastname;
+        $user->email = $req->email;
+        $user->password = $req->password;
+        $user->user_type = $req->user_type;
 
         $user->save();
 
@@ -46,6 +48,7 @@ class UserController extends Controller
     {
         $user = User::find($user_id);
 
+
         if (!$user) {
             return response()->json([
                 'success' => false,
@@ -56,6 +59,52 @@ class UserController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'User trouvé',
+            'data' => $user
+        ]);
+    }
+
+    public function updateUser(Request $req,$user_id)
+    {
+        $user = User::find($user_id);
+
+
+        $validator = Validator::make($req->all(), [
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'user_type' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 400);
+        }
+
+        $user->update($req->all());
+
+        return response()->json([
+            'message' => 'User mis à jour avec succès',
+            'data' => $user
+        ], 200);
+    }
+
+    public function deleteUser($user_id)
+    {
+
+        $user = User::find($user_id);
+
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'User introuvable'
+            ], 404);
+        }
+
+        $user->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'User supprimé',
             'data' => $user
         ]);
     }

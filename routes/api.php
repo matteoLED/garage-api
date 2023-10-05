@@ -14,6 +14,8 @@ Route::get('/', HomeController::class);
 Route::get('/users', [UserController::class, 'getUsers']);
 Route::post('/users/add', [UserController::class, 'createUser']);
 Route::get('/user/{id}', [UserController::class, 'getUserById']);
+Route::put('/user/{id}', [UserController::class, 'updateUser']);
+Route::delete('/users/{id}', [UserController::class, 'deleteUser']);
 
 
 

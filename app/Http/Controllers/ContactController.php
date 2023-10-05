@@ -40,24 +40,7 @@ class ContactController extends Controller
         ], 200);
     }
 
-    public function deleteContact($contact_id){
-        $contact = Contact::find($contact_id);
-
-        if (!$contact) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Contact introuvable'
-            ], 404);
-        }
-
-        $contact->delete();
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Contact supprimé',
-            'data' => $contact
-        ], 200);
-    }
+   
 
     public function getContactById($contact_id)
     {
@@ -88,5 +71,25 @@ class ContactController extends Controller
             'message' => 'Contact mis à jour',
             'data' => $contact
         ]);
+    }
+
+    public function deleteContact($contact_id)
+    {
+        $contact = Contact::find($contact_id);
+
+        if (!$contact) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Contact introuvable'
+            ], 404);
+        }
+
+        $contact->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Contact supprimé',
+            'data' => $contact
+        ], 200);
     }
 }
