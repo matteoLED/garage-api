@@ -41,7 +41,7 @@ class CustomerTestimonialController extends Controller
             'success' => true,
             'service' => 'Customer Testimonials API',
             'message' => 'Listes des customer testimonials',
-            'customer testimonials' => $customerTestimonials,
+            'testimonials' => $customerTestimonials,
         ], 200);
     }
 
