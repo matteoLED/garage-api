@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HourController;
 use App\Http\Controllers\CustomerTestimonialController;
 use App\Http\Controllers\ContactController;
@@ -11,8 +12,11 @@ use App\Http\Controllers\UsedVehicleController;
 
 Route::get('/', HomeController::class);
 
+
+Route::post('/login', [AuthController::class, 'login']);
+
 Route::get('/users', [UserController::class, 'getUsers']);
-Route::post('/users/add', [UserController::class, 'createUser']);
+Route::post('/user/add', [UserController::class, 'createUser']);
 Route::get('/user/{id}', [UserController::class, 'getUserById']);
 Route::put('/user/{id}', [UserController::class, 'updateUser']);
 Route::delete('/users/{id}', [UserController::class, 'deleteUser']);
