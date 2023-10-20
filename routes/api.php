@@ -19,7 +19,7 @@ Route::get('/users', [UserController::class, 'getUsers']);
 Route::post('/user/add', [UserController::class, 'createUser']);
 Route::post('/user/admin/create', [UserController::class, 'adminCreateEmployees']);
 Route::get('/user/{id}', [UserController::class, 'getUserById']);
-Route::put('/user/{id}', [UserController::class, 'updateUser']);
+Route::put('/user/update/{id}', [UserController::class, 'updateUser']);
 Route::delete('/users/{id}', [UserController::class, 'deleteUser']);
 
 
