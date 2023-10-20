@@ -108,4 +108,31 @@ class UserController extends Controller
             'data' => $user
         ]);
     }
+
+
+    public function adminCreateEmployees(Request $req)
+    {
+        // Vérifiez si l'utilisateur est un administrateur
+        if ($req->user() && $req->user()->user_type === 'administateur') {
+            $user = new User;
+
+            $user->firstname = $req->firstname;
+            $user->lastname = $req->lastname;
+            $user->email = $req->email;
+            $user->password = $req->password;
+            $user->user_type = $req->user_type;
+
+            $user->save();
+
+            return response()->json([
+                "message" => "Utilisateur créé avec succès",
+                "data" => $user
+            ], 201);
+        } else {
+            return response()->json([
+                "message" => "Accès non autorisé. Vous devez être un administrateur pour créer des comptes.",
+            ], 403); // 403 signifie "Accès interdit"
+        }
+    }
+
 }
