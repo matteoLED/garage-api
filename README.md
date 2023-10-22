@@ -48,5 +48,12 @@ L'application dispose d'une API pour gérer les données. Voici quelques-uns des
 - /api/used/vehicle/add: Ajouter un nouveau véhicule d'occasion.
 - /api/customer/testimonials: Obtenir la liste des témoignages clients.
 - /api/customer/testimonial/add: Ajouter un nouveau témoignage client.
-...
 
+# Diagramme UML
+![](./docs/Diagramme_class.png)
+
+![](./docs/Diagramme_use.png)
+
+![](./docs/Diagramme_sequence.png)
+
+![](./docs/Diagramme_merise.png)
